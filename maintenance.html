@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Maintenance (Admin Only)</h3>
+
+<!-- Initialize Base Data -->
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Create Maintenance Base</button>
+</form>
+
+<!-- Display Maintenance Data -->
+{% if data %}
+    <div class="card">
+        <h4>Maintenance Records</h4>
+        <table class="table-card">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Created At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for m in data %}
+                <tr>
+                    <td>{{ m.id }}</td>
+                    <td>{{ m.title }}</td>
+                    <td>{{ m.created_at|date:"M d, Y H:i" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+{% endblock %}

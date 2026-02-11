@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h3>Add Membership</h3>
+
+{% if not form %}
+<p style="color:red;">Maintenance not initialized. Please contact admin.</p>
+{% else %}
+
+<form method="POST">
+    {% csrf_token %}
+    
+    <!-- Display form fields -->
+    {{ form.as_p }}
+    
+    <!-- Submit button -->
+    <button type="submit">Add Membership</button>
+</form>
+
+{% endif %}
+
+{% endblock %}
+
+

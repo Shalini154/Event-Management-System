@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h3>Transactions</h3>
+
+<table class="table-card">
+  <thead>
+    <tr>
+      <th>Membership Number</th>
+      <th>Action</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t in data %}
+    <tr>
+      <td>{{ t.membership.membership_number }}</td>
+      <td>{{ t.action }}</td>
+      <td>{{ t.date|date:"M d, Y H:i a" }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="3" style="text-align:center;">No transactions found</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

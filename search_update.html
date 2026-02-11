@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Update Membership</h2>
+
+<div class="card">
+    <form method="post">
+        {% csrf_token %}
+        <input type="number" name="mid" placeholder="Membership Number" required>
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Reports</h3>
+
+{% if data %}
+<table class="table-card">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Duration</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for m in data %}
+        <tr>
+            <td>{{ m.id }}</td>
+            <td>{{ m.name }}</td>
+            <td>{{ m.active }}</td>
+            <td>{{ m.duration }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No memberships found.</p>
+{% endif %}
+{% endblock %}

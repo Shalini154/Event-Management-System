@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Update Membership</h2>
+
+<div class="card">
+    <p><b>Name:</b> {{ m.name }}</p>
+    <p><b>Email:</b> {{ m.email }}</p>
+    <p><b>Status:</b> {% if m.active %}Active{% else %}Inactive{% endif %}</p>
+    <p><b>Duration:</b> {{ m.duration }}</p>
+</div>
+
+<div class="card">
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="action" value="extend">Extend 6 Months</button>
+        <button type="submit" name="action" value="cancel" style="background:red;">Cancel Membership</button>
+    </form>
+</div>
+
+{% endblock %}

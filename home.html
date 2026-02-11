@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<center>
+<h2>Welcome to Event Management System</h2>
+
+<img src="https://img.freepik.com/free-vector/event-management-concept-illustration_114360-6864.jpg"
+width="420" style="border-radius:10px;margin:10px">
+
+<p>
+Manage your events, members and transactions easily with EMS portal.
+</p>
+</center>
+
+<div style="display:flex;gap:20px;justify-content:center;margin-top:20px;">
+
+<div class="card">
+<h3>Add Membership</h3>
+<p>Create new member record</p>
+<a href="/add/"><button>Open</button></a>
+</div>
+
+<div class="card">
+<h3>Update Membership</h3>
+<p>Extend or cancel plan</p>
+<a href="/search-update/"><button>Open</button></a>
+</div>
+
+<div class="card">
+<h3>View Reports</h3>
+<p>All membership details</p>
+<a href="/reports/"><button>Open</button></a>
+</div>
+
+</div>
+
+{% endblock %}
+
+
+

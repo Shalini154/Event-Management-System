@@ -1,0 +1,194 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>EMS</title>
+
+<style>
+/* ===== BODY ===== */
+body{
+    margin:0;
+    font-family: Calibri, Arial;
+    background:#eaf6ff;
+}
+
+/* ===== HEADER ===== */
+.header{
+    background:#0fa3ff;
+    color:white;
+    padding:18px;
+    text-align:center;
+    letter-spacing:1px;
+    box-shadow:0 2px 8px #aaa;
+}
+
+.container{
+    width:70% !important;
+    margin:auto !important;
+}
+
+/* ===== NAVBAR ===== */
+.nav{
+    display:flex;
+    justify-content:space-evenly;
+    align-items:center;
+    background:#ffffff;
+    padding:12px;
+    box-shadow:0 0 6px #aaa;
+    flex-wrap:wrap;
+}
+
+.nav a,
+.nav-logout-btn{
+    text-decoration:none;
+    padding:8px 16px;
+    color:#0fa3ff;
+    font-weight:bold;
+    border-radius:6px;
+    transition:0.3s;
+}
+
+/* Hover + Active */
+.nav a:hover,
+.nav a.active-link,
+.nav-logout-btn:hover{
+    background:#0fa3ff;
+    color:white;
+    transform:scale(1.05);
+}
+
+/* Logout button specific reset */
+.nav-logout-btn{
+    background:none;
+    border:none;
+    cursor:pointer;
+}
+
+/* ===== MAIN CONTENT BOX ===== */
+.container{
+    margin:25px auto;
+    padding:20px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 0 12px #bbb;
+    width:92%;
+    min-height:420px;
+}
+
+/* ===== FORM STYLE ===== */
+input, select{
+    padding:8px;
+    width:260px;
+    margin:6px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+button{
+    background:#0fa3ff;
+    color:white;
+    padding:8px 16px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#007acc;
+}
+
+/* ===== CARD DESIGN ===== */
+.card{
+    background:#f0faff;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 0 5px #ccc;
+    text-align:center;
+    margin-bottom:15px;
+}
+
+/* ===== TABLE STYLING ===== */
+.table-card{
+    width:100%;
+    border-collapse: collapse;
+    box-shadow:0 0 8px #bbb;
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:15px;
+}
+
+.table-card th, .table-card td{
+    padding:12px;
+    text-align:left;
+}
+
+.table-card thead{
+    background:#0fa3ff;
+    color:white;
+}
+
+.table-card tbody tr:nth-child(even){
+    background:#f0faff;
+}
+
+.table-card tbody tr:hover{
+    background:#d0e7ff;
+}
+
+/* ===== FOOTER ===== */
+.footer{
+    text-align:center;
+    margin-top:20px;
+    color:gray;
+    padding:10px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+    .nav a,
+    .nav-logout-btn{
+        padding:6px;
+        font-size:14px;
+    }
+    input, select{
+        width:100%;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+<h2>Event Management System</h2>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<div class="nav">
+  <a href="/" class="{% if request.path == '/' %}active-link{% endif %}">Home</a>
+  <a href="/dashboard/" class="{% if 'dashboard' in request.path %}active-link{% endif %}">Dashboard</a>
+  <a href="/maintenance/" class="{% if 'maintenance' in request.path %}active-link{% endif %}">Maintenance</a>
+  <a href="/add/" class="{% if 'add' in request.path %}active-link{% endif %}">Add Membership</a>
+  <a href="/search-update/" class="{% if 'search-update' in request.path %}active-link{% endif %}">Update</a>
+  <a href="/reports/" class="{% if 'reports' in request.path %}active-link{% endif %}">Reports</a>
+  <a href="/transactions/" class="{% if 'transactions' in request.path %}active-link{% endif %}">Transactions</a>
+
+  <!-- ✅ LOGOUT USING POST -->
+  <form method="post" action="{% url 'logout' %}" style="display:inline;">
+      {% csrf_token %}
+      <button type="submit" class="nav-logout-btn">Logout</button>
+  </form>
+</div>
+
+<div class="container">
+{% block content %}
+{% endblock %}
+</div>
+
+<div class="footer">
+EMS Project © 2026 | Developed for Academic Purpose
+</div>
+
+</body>
+</html>
