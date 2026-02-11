@@ -48,7 +48,7 @@ python manage.py migrate
 python manage.py runserver
 
 5. Open in browser
-[http://127.0.0.1:8000/](url)
+http://127.0.0.1:8000/
 
 6.live link
-[https://64756218-d842-4819-84b0-b985068ff458-00-e0ivous63au1.pike.replit.dev/](url)
+https://64756218-d842-4819-84b0-b985068ff458-00-e0ivous63au1.pike.replit.dev/
